@@ -1,0 +1,11 @@
+spring:
+  rabbitmq:
+    addresses: xx
+    listener:
+      direct:
+        acknowledge-mode: manual
+      simple:
+        acknowledge-mode: manual
+    password: xx
+    publisher-confirms: false
+    username: admin
