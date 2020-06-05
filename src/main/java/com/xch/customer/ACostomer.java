@@ -14,7 +14,7 @@ public class ACostomer {
 
     @RabbitListener(queues = {"que1"})
     public void s(String msg, Channel channel, Message message){
-        log.info("receive msg :" + msg);
+        log.info("receive1 msg :" + msg);
         try {
             channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
         } catch (IOException e) {
@@ -22,4 +22,17 @@ public class ACostomer {
             throw new RuntimeException("xxx");
         }
     }
+
+    @RabbitListener(queues = {"que1"})
+    public void s2(String msg, Channel channel, Message message){
+        log.info("receive2 msg :" + msg);
+        try {
+            channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new RuntimeException("xxx");
+        }
+    }
+
+
 }
